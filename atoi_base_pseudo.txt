@@ -1,0 +1,46 @@
+PSEUDO CAMBIO DE BASE
+
+argumentos: *numero, *base
+
+Calcular longitud de base.
+
+Crear int.
+
+Bucle:
+		Multiplicar int * len(base)
+		Coger siguiente caracter de numero.
+		Comrobar que se encuentra en la base.
+		Sumarselo a int.
+
+COMPROBACIÓN DE FLUJO:
+
+numero = "36"
+base = "01234567"
+
+len(base) = 8
+
+int i = 0;
+
+Bucle:
+
+i = i * len(base); int = 0
+
+3.
+
+Está en la base!
+
+i = i + 3 ; i = 3
+
+Bucle:
+
+i = i * len(base) = 24
+
+6.
+
+Está en la base
+
+i = i + 3 ; i = 30
+
+
+
+
