@@ -12,10 +12,10 @@ Bucle:
 		Comrobar que se encuentra en la base.
 		Sumarselo a int.
 
-COMPROBACIÓN DE FLUJO:
+COMPROBACIÓN DE FLUZO:
 
-numero = "36"
-base = "01234567"
+numero = "15 * 16 "
+base = "0123456789abcdef"
 
 len(base) = 8
 

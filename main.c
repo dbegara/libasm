@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davidbegarabesco <davidbegarabesco@stud    +#+  +:+       +#+        */
+/*   By: dbegara- <dbegara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:27:35 by davidbegara       #+#    #+#             */
-/*   Updated: 2021/02/17 13:34:55 by davidbegara      ###   ########.fr       */
+/*   Updated: 2021/02/17 19:36:32 by dbegara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	ft_isspace(char c);
 int	main(void)
 {
 
-	printf("%d, %d \n", ft_isspace('c'),ft_atoi_base("dasdsadsadada", "hola"));
+	printf("%d, %d \n", ft_isspace(' '),ft_atoi_base("4ef", "0123456789abcdef"));
 	return (0);
 }
