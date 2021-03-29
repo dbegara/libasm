@@ -3,8 +3,6 @@ global	_ft_list_size
 
 _ft_list_size:
 	xor		rax, rax
-	cmp		rdi, 0
-	jz		return
 	loop:
 		cmp		rdi, 0
 		jz		return

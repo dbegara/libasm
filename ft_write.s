@@ -9,10 +9,10 @@ _ft_write:
 	ret
 
 error:
-	push r15
+	sub	rsp, 8
 	mov r15, rax
 	call ___error
+	add	rsp, 8
 	mov [rax], r15
-	pop r15
 	mov rax, -1
 	ret

@@ -88,10 +88,10 @@ return:
 check_error:
 	pop		rdi
 	add		rsp, 4
-	mov		rax, -1
+	mov		rax, 0
 	ret
 
 error:
 	add		rsp, 4
-	mov		rax, -1
+	mov		rax, 0
 	ret
