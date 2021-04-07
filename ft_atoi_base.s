@@ -17,12 +17,13 @@ check_base:
 	jb		error			; if (rax < 2) jump to error
 	mov		[rsp], eax		; saves len(rdi) on local variable at the stack
 	push	rdi				; push rdi
+	mov		rdi, rsi
 	xor		r9, r9			; r9 = 0
 
 check_base_loop:
 	cmp		r9d, [rsp + 8]			
 	je		check_done				; if (r9 == len(base)) jump to done
-	mov		dil, BYTE [rsi + r9]	; stores base[r9] on al (lower byte of rax)
+	add		rdi, r9
 	call	_ft_isspace
 	cmp		rax, 1
 	je		check_error
@@ -46,9 +47,23 @@ check_base_loop:
 
 
 neg_num:
-	mov		r9, -1		; 	neg		= -1
-	inc		r8			;	i		= 1
-	jmp		num_loop
+	cmp		r9, -1
+	je		.pos
+	.neg:
+		mov		r9, -1		; 	neg		= -1
+		inc		rdi			;	str++
+		dec		r11
+		jmp		check_done.sign_check
+	.pos:
+		mov		r9, 1		; 	neg		= -1
+		inc		rdi			;	str++
+		dec		r11
+		jmp		check_done.sign_check
+
+plus_sign:
+	inc		rdi
+	dec		r11
+	jmp		check_done.sign_check
 
 check_done:
 	pop		rdi
@@ -56,9 +71,21 @@ check_done:
 	mov		r11, rax				; len(str)
 	xor		rax, rax				; rax = 0
 	xor		r8, r8					; i = 0
-	cmp		BYTE [rdi], 45
-	je		neg_num
-	mov		r9, 1
+	.skip_spaces:
+		call	_ft_isspace
+		cmp		rax, 1
+		jne		.end_skip_spaces
+		inc		rdi
+		dec		r11
+		jmp		.skip_spaces
+	.end_skip_spaces:
+		mov		r9, 1
+		.sign_check:
+			cmp		BYTE [rdi], 45
+			je		neg_num
+			cmp		BYTE [rdi], 43
+			je		plus_sign
+	xor rax, rax
 	
 num_loop:
 	cmp		r8, r11					; if i == len(str)
@@ -69,9 +96,9 @@ num_loop:
 	inc		r8						; i++
 
 find_num:
-	cmp		ecx, [rsp]				; if rcx == len(base)
-	je		error
-	cmp		r10b, BYTE [rsi + rcx]		
+	cmp		ecx, [rsp]  			; if rcx == len(base)
+	je		return
+	cmp		r10b, BYTE [rsi + rcx]
 	je		add_num
 	inc		rcx
 	jmp		find_num
@@ -86,8 +113,7 @@ return:
 	ret
 
 check_error:
-	pop		rdi
-	add		rsp, 4
+	add		rsp, 12
 	mov		rax, 0
 	ret
 

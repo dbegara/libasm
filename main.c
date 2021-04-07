@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbegara- <dbegara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davidbegarabesco <davidbegarabesco@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:27:35 by davidbegara       #+#    #+#             */
-/*   Updated: 2021/03/29 18:52:00 by dbegara-         ###   ########.fr       */
+/*   Updated: 2021/04/07 11:14:56 by davidbegara      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+/*
 //ssize_t	ft_write(int __fd, const void *__buf, size_t __nbyte);
 int		ft_list_size(t_list *lst);
 t_list	*ft_create_elem(void *data);
@@ -28,10 +29,13 @@ void	ft_list_push_front(t_list **begin_list, void *data);
 void	ft_list_sort(t_list **begin_list, int (*cmp)());
 void	ft_list_remove(t_list **elem, void (*free_ftc)());
 void	ft_list_remove_if(t_list **elem, void *data_ref, int (*cmp)(), void (*free_fct)(void *));
+*/
+int		ft_atoi_base(char *num, char *base);
+
 
 int	main(void)
 {
-	//ft_write(1, "Hola", 4);
+	/*
 	t_list	*list;
 	t_list	*list_2;
 
@@ -44,5 +48,7 @@ int	main(void)
 	//ft_list_remove(&(list->next), free);
 	ft_list_remove_if(&list, "1", strcmp, free);
 	printf("List size: %d - First element: %s\n", ft_list_size(list), list->next->next);
+	*/
+	printf("%d", ft_atoi_base("--ff", "0123456789abcdef"));
 	return (0);
 }

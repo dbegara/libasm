@@ -1,20 +1,20 @@
 section	.text
 global	_ft_isspace
 
-;dil = char c
+;BYTE [rdi] = char c
 
 _ft_isspace:
-	cmp		dil, 9
+	cmp		BYTE [rdi], 9
 	je		equal
-	cmp		dil, 10
+	cmp		BYTE [rdi], 10
 	je		equal
-	cmp		dil, 11
+	cmp		BYTE [rdi], 11
 	je		equal
-	cmp		dil, 12
+	cmp		BYTE [rdi], 12
 	je		equal
-	cmp		dil, 13
+	cmp		BYTE [rdi], 13
 	je		equal
-	cmp		dil, 32
+	cmp		BYTE [rdi], 32
 	je		equal
 	mov		rax, 0
 	ret
